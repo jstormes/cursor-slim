@@ -2,6 +2,12 @@
 
 This document outlines the coding conventions and standards for our project.
 
+Don't rebuild docker containers unless asked.  
+
+Use only the php-dev container unlessed asked to update the prod container.
+
+Use php composer only inside the docker php-dev container.
+
 ## General Formatting
 
 - **Indentation**: 4 spaces
@@ -49,6 +55,9 @@ This document outlines the coding conventions and standards for our project.
 - Engine: InnoDB
 - Character Set: utf8mb4
 - Collation: utf8mb4_unicode_ci
+- Use the database named app
+- All startup SQL script should be in .docker/db-startup.development
+- When chainging database startup scripts just do a docker build with cache
 
 ### Query Formatting
 - SQL Keywords: UPPERCASE
