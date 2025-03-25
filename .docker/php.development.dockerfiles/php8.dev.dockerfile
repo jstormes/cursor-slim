@@ -181,14 +181,7 @@ RUN echo "alias debug='export XDEBUG_MODE=debug,develop,coverage'" >> /home/user
 # Creates a shell wrapper for composer to run without XDebug.
 # This is needed for PhpStorm to run Composer directly.
 ############################################################################
-# Turn xDebug off so we dont "debug" during docker build.
-RUN cd ~ \
-    && export XDEBUG_MODE=off \
-    && mkdir ~/bin \
-    && curl -sS https://getcomposer.org/installer | php -- --install-dir=$HOME/bin --filename=composer.phar \
-    && chmod u+x ~/bin/composer.phar \
-    && echo "#!/usr/bin/env bash\n\nXDEBUG_MODE=off ~/bin/composer.phar \$@" > ~/bin/composer \
-    && chmod u+x ~/bin/composer
+COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Add our script files to the path so they can be found
 ENV PATH /app/vendor/bin:/var/www/vendor/bin:~/bin:~/.composer/vendor/bin:$PATH
