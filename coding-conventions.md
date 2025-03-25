@@ -58,6 +58,7 @@ Use php composer only inside the docker php-dev container.
 - Use the database named app
 - All startup SQL script should be in .docker/db-startup.development
 - When chainging database startup scripts just do a docker build with cache
+- Use the MYSQL_DSN enviornment varable from dcoker to setup the database conection
 
 ### Query Formatting
 - SQL Keywords: UPPERCASE
