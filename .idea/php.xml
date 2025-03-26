@@ -12,7 +12,7 @@
   </component>
   <component name="PhpProjectServersManager">
     <servers>
-      <server host="127.0.0.1" id="e815d793-580b-48d7-b2e2-f0cb8b629355" name="DEBUG" use_path_mappings="true">
+      <server host="localhost" id="e815d793-580b-48d7-b2e2-f0cb8b629355" name="DEBUG" port="8088" use_path_mappings="true">
         <path_mappings>
           <mapping local-root="$PROJECT_DIR$/www" remote-root="/www" />
         </path_mappings>
