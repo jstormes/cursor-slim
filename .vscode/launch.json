@@ -6,7 +6,7 @@
     "request": "launch",
     "port": 9003,
     "pathMappings": {
-      "/app": "${workspaceFolder}/app"
+      "/www": "${workspaceFolder}/www"
     }
   }
   ]
