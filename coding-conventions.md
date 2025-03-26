@@ -2,11 +2,12 @@
 
 This document outlines the coding conventions and standards for our project.
 
-Don't rebuild docker containers unless asked.  
 
-Use only the php-dev container unlessed asked to update the prod container.
-
-Use php composer only inside the docker php-dev container.
+## Coding enviornment 
+- This project uses docker and docker compose.  
+- Don't rebuild docker containers unless asked.  
+- Use only the php-dev container unlessed asked to use the prod container.
+- Use php composer only inside the docker php-dev container.
 
 ## General Formatting
 
