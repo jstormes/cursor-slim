@@ -64,7 +64,7 @@ RUN useradd -m user \
     && echo "alias mysql='mysql --user=root'" >> /home/user/.bashrc
 
 USER user
-WORKDIR /app
+WORKDIR /www
 # Add our script files to the path so they can be found
 ENV PATH /app/bin:$PATH
 CMD ["/bin/bash"]

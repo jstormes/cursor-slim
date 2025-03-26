@@ -1,4 +1,4 @@
-FROM php:8 AS build
+FROM php:7.4 AS build
 
 ############################################################################
 # Install system commands and libraries
@@ -67,7 +67,7 @@ RUN rm -rf /var/www/vendor/composer \
 
 
 
-FROM php:8-apache AS production
+FROM php:7.4-apache AS production
 
 ############################################################################
 # Install Internationalization

@@ -38,10 +38,12 @@ Make sure you have Docker Desktop installed and running.
 ### Initializing Composer
 
 1. Initialize a new Composer project in the app directory:
-   ```bash
-   docker compose exec php-dev composer init
+   ```
+   docker compose exec php-dev composer create-project slim/slim-skeleton /www/[my-app-name]
    ```
    Follow the prompts to set up your project. You can press Enter to accept the defaults.
+
+   Then update that path for the PHP command to start the server in the file ./docker-compose.yml
 
 2. After initialization, you can install dependencies using:
    ```bash

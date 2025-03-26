@@ -59,17 +59,16 @@ services:
     # NOTE: The host folder/file MUST be inside the project directory.
     # {host folder}:{container folder}
     volumes:
-      - ./app:/app
-      - ./:/project
+      - ./www:/www
       - ./.docker/xdebug.info:/xdebug.info  # see https://xdebug.org/docs/profiler
 
     # This section `command` overrides the default command from the docker image.
     # We are using this to force Docker to start our own command when the container
     # starts.  We can further override some environment variables only for this command.
     #
-    # This command starts a PHP server on port 80 using our mapped folder `/app/html`.
+    # This command starts a PHP server on port 80 using our mapped folder `/app/public`.
     #
-    command: bash -c 'php -S 0.0.0.0:80 -t /app/html'
+    command: bash -c 'php -S 0.0.0.0:80 -t /www/app/public'
     #
     # The export in the command: line overrides the xdebug.ini and any environment variables previously set.
     # XDEBUG_MODE, this will override the XDebug settings for the container.

@@ -1,4 +1,4 @@
-FROM php:8
+FROM php:8.1
 
 ############################################################################
 # Install system commands and libraries
@@ -116,7 +116,7 @@ COPY ./.docker/php.development.dockerfiles/configs/php.ini /usr/local/etc/php/ph
 # Setup XDebug https://xdebug.org/download/historical
 # xdebug-x.x.x for specific version
 ############################################################################
-RUN pecl install xdebug \
+RUN pecl install xdebug-3.1.6 \
     && docker-php-ext-enable xdebug
 
 # Copy the xdebug.ini file to the container.
@@ -141,10 +141,10 @@ RUN apt-get install -y default-mysql-client
 RUN echo "alias mysql='mysql --user=root'\n" >> /home/user/.bashrc
 
 USER user
-WORKDIR /app
+WORKDIR /www
 CMD ["/bin/bash"]
 # Add our script files to the path so they can be found
-ENV PATH /app/bin:$PATH
+#ENV PATH /app/bin:$PATH
 
 ############################################################################
 # Setup Default XDebug CLI settings
@@ -176,15 +176,12 @@ RUN echo "alias debug='export XDEBUG_MODE=debug,develop,coverage'" >> /home/user
 
 
 ############################################################################
-# Install PHP Composer https://getcomposer.org/download/
-# Add "--version=1.10.22" after "php --" to get a specific version.
-# Creates a shell wrapper for composer to run without XDebug.
-# This is needed for PhpStorm to run Composer directly.
+# Install PHP Composer from the composer image
 ############################################################################
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
 # Add our script files to the path so they can be found
-ENV PATH /app/vendor/bin:/var/www/vendor/bin:~/bin:~/.composer/vendor/bin:$PATH
+#ENV PATH /app/vendor/bin:/var/www/vendor/bin:~/bin:~/.composer/vendor/bin:$PATH
 
 ############################################################################
 # Install Codeception native

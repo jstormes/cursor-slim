@@ -112,7 +112,7 @@ RUN apt-get install -y default-mysql-client
 RUN echo "alias mysql='mysql --user=root'\n" >> /home/user/.bashrc
 
 USER user
-WORKDIR /app
+WORKDIR /www
 CMD ["/bin/bash"]
 # Add our script files to the path so they can be found
 ENV PATH /app/bin:$PATH

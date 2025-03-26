@@ -48,7 +48,7 @@ RUN useradd -m user \
 
 
 USER user
-WORKDIR /app
+WORKDIR /www
 # Add our script files to the path so they can be found
 ENV PATH /app/bin:$PATH
 CMD ["/bin/bash"]
